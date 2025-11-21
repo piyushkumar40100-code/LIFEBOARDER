@@ -4,9 +4,9 @@ import config from './config/env';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
 import { authenticate } from './middleware/authMiddleware';
 
-// Import routes (will be created later)
-// import authRoutes from './routes/auth';
-// import goalsRoutes from './routes/goals';
+// Import routes
+import authRoutes from './routes/auth';
+import goalsRoutes from './routes/goals';
 
 const createApp = (): Application => {
   const app: Application = express();
