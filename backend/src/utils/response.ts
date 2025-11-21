@@ -34,9 +34,18 @@ export class ResponseService {
   static success<T>(
     res: Response,
     data: T,
-    statusCode: number = 200,
+    statusCodeOrMessage?: number | string,
     message?: string
   ): Response<ApiResponse<T>> {
+    let statusCode: number = 200;
+
+    // Handle overloaded parameters
+    if (typeof statusCodeOrMessage === 'number') {
+      statusCode = statusCodeOrMessage;
+    } else if (typeof statusCodeOrMessage === 'string') {
+      message = statusCodeOrMessage;
+    }
+
     return res.status(statusCode).json({
       success: true,
       data,
