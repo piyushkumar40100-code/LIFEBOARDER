@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
     {
       name: 'Bucket List',
       href: '/dashboard/bucketlist',
-      icon: MapIcon,
+      icon: MapPinIcon,
       description: 'Life experiences to achieve',
     },
   ];
