@@ -13,7 +13,7 @@ export class JWTService {
     };
 
     const signOptions: SignOptions = {
-      expiresIn: config.jwt.accessTokenExpiry,
+      expiresIn: config.jwt.accessTokenExpiry as string,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
     };
