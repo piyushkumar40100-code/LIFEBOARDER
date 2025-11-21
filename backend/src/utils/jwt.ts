@@ -12,13 +12,11 @@ export class JWTService {
       email,
     };
 
-    const signOptions: SignOptions = {
-      expiresIn: config.jwt.accessTokenExpiry as string,
+    return jwt.sign(payload, config.jwt.accessSecret, {
+      expiresIn: config.jwt.accessTokenExpiry,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
-    };
-
-    return jwt.sign(payload, config.jwt.accessSecret, signOptions);
+    } as SignOptions);
   }
 
   /**
