@@ -18,7 +18,7 @@ export const authService = {
 
   async register(userData: RegisterData): Promise<AuthResponse> {
     try {
-      const response = await apiClient.post<AuthResponse>('/api/v1/auth/register', userData);
+     const response = await apiClient.post<AuthResponse>('/api/v1/auth/register', userData);
 
       // Store tokens in localStorage
       const { accessToken, refreshToken } = response.data.tokens;
@@ -32,7 +32,7 @@ export const authService = {
 
   async logout(): Promise<void> {
     try {
-      await apiClient.post('/api/v1/auth/logout');
+     await apiClient.post('/api/v1/auth/logout');
     } catch (error) {
       // Continue with logout even if API call fails
       console.error('Logout API call failed:', error);
