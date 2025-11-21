@@ -56,9 +56,9 @@ const createApp = (): Application => {
     });
   });
 
-  // Mount routes (will uncomment when implemented)
-  // app.use('/api/v1/auth', authRoutes);
-  // app.use('/api/v1/goals', authenticate, goalsRoutes);
+  // Mount routes
+  app.use('/api/v1/auth', authRoutes);
+  app.use('/api/v1/goals', goalsRoutes);
 
   // 404 handler for undefined routes
   app.use(notFoundHandler);
