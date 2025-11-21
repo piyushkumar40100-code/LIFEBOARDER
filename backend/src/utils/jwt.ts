@@ -13,7 +13,7 @@ export class JWTService {
     };
 
     const signOptions: SignOptions = {
-      expiresIn: config.jwt.accessTokenExpiry,
+      expiresIn: config.jwt.accessTokenExpiry as string,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
     };
@@ -31,7 +31,7 @@ export class JWTService {
     };
 
     const refreshSignOptions: SignOptions = {
-      expiresIn: config.jwt.refreshTokenExpiry,
+      expiresIn: config.jwt.refreshTokenExpiry as string,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
     };
