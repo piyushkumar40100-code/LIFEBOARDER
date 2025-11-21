@@ -19,8 +19,8 @@ class SupabaseService {
       throw new Error('Invalid DATABASE_URL format. Expected Supabase connection string');
     }
 
-    // For direct database access, we don't need the anon key since we're using RLS
-    this.client = createClient(supabaseUrl, '', {
+    // Use the Supabase anon key for authentication
+    this.client = createClient(supabaseUrl, config.database.supabaseAnonKey, {
       auth: {
         persistSession: false,
         autoRefreshToken: false,
