@@ -7,6 +7,11 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  // TEMPORARILY BYPASS AUTHENTICATION - COMMENT OUT TO ENABLE LOGIN AGAIN
+  return <>{children}</>;
+
+  // Original auth logic - uncomment when ready to enable login
+  /*
   const { isAuthenticated, isLoading } = useAuth();
   const location = useLocation();
 
@@ -23,6 +28,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }
 
   return <>{children}</>;
+  */
 };
 
 export default ProtectedRoute;
