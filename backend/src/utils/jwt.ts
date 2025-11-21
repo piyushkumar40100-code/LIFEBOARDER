@@ -30,11 +30,13 @@ export class JWTService {
       email,
     };
 
-    return jwt.sign(payload, config.jwt.refreshSecret, {
+    const refreshSignOptions: SignOptions = {
       expiresIn: config.jwt.refreshTokenExpiry,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
-    });
+    };
+
+    return jwt.sign(payload, config.jwt.refreshSecret, refreshSignOptions);
   }
 
   /**
