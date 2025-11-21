@@ -5,6 +5,13 @@ class SupabaseService {
   private client: SupabaseClient;
 
   constructor() {
+    // Debug logging
+    console.log('🔍 Supabase config - DATABASE_URL:', config.database.url?.substring(0, 50) + '...');
+
+    if (!config.database.url) {
+      throw new Error('DATABASE_URL is not configured in environment variables');
+    }
+
     this.client = createClient(config.database.url, '', {
       auth: {
         persistSession: false,
