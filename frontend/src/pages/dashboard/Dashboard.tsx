@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
           <Card>
             <div className="flex items-center">
               <div className="flex-shrink-0 bg-green-100 rounded-lg p-3">
-                <CheckSquareIcon className="h-6 w-6 text-green-600" />
+                <CheckCircleIcon className="h-6 w-6 text-green-600" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
