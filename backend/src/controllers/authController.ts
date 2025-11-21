@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { z } from 'zod';
 import UserModel from '../models/User';
-import JWTService from '../utils/jwt';
+const JWTService = require('../utils/jwt');
 import PasswordService from '../utils/passwords';
 import ResponseService from '../utils/response';
 import { CustomError } from '../middleware/errorHandler';
