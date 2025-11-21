@@ -7,7 +7,7 @@ export const authService = {
       const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
 
       // Store tokens in localStorage
-      const { accessToken, refreshToken } = response.data.data.tokens;
+      const { accessToken, refreshToken } = response.data.tokens;
       apiClient.setAuthTokens(accessToken, refreshToken);
 
       return response;
@@ -21,7 +21,7 @@ export const authService = {
       const response = await apiClient.post<AuthResponse>('/auth/register', userData);
 
       // Store tokens in localStorage
-      const { accessToken, refreshToken } = response.data.data.tokens;
+      const { accessToken, refreshToken } = response.data.tokens;
       apiClient.setAuthTokens(accessToken, refreshToken);
 
       return response;
@@ -49,11 +49,11 @@ export const authService = {
         throw new Error('No refresh token available');
       }
 
-      const response = await apiClient.post('/auth/refresh', {
+      const response = await apiClient.post<{ success: boolean; data: { accessToken: string } }>('/auth/refresh', {
         refreshToken,
       });
 
-      const { accessToken } = response.data.data;
+      const { accessToken } = response.data;
       localStorage.setItem('accessToken', accessToken);
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Token refresh failed');

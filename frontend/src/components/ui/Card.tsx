@@ -68,8 +68,8 @@ const CardFooter: React.FC<CardFooterProps> = ({ children, className = '' }) => 
   return <div className={classes}>{children}</div>;
 };
 
-Card.Header = CardHeader;
-Card.Body = CardBody;
-Card.Footer = CardFooter;
+(Card as any).Header = CardHeader;
+(Card as any).Body = CardBody;
+(Card as any).Footer = CardFooter;
 
 export default Card;

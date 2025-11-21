@@ -7,7 +7,7 @@ import {
   TrophyIcon,
   CurrencyDollarIcon,
   FireIcon,
-  CheckSquareIcon,
+  CheckCircleIcon,
   HeartIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline';
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
       title: 'Tasks',
       description: 'Organize and complete daily tasks',
       href: '/dashboard/todos',
-      icon: CheckSquareIcon,
+      icon: CheckCircleIcon,
       color: 'bg-blue-500',
       count: stats.tasks,
     },
@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
           <Card>
             <div className="flex items-center">
               <div className="flex-shrink-0 bg-green-100 rounded-lg p-3">
-                <CheckSquareIcon className="h-6 w-6 text-green-600" />
+                <CheckCircleIcon className="h-6 w-6 text-green-600" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
@@ -198,7 +198,7 @@ const Dashboard: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <div className="flex-shrink-0">
                   <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
-                    <CheckSquareIcon className="h-4 w-4 text-green-600" />
+                    <CheckCircleIcon className="h-4 w-4 text-green-600" />
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">

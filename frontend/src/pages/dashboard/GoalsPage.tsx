@@ -14,6 +14,7 @@ import {
   CheckIcon,
   XMarkIcon,
   ClockIcon,
+  TrophyIcon,
 } from '@heroicons/react/24/outline';
 
 const GoalsPage: React.FC = () => {

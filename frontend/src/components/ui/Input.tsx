@@ -9,6 +9,7 @@ interface InputProps {
   disabled?: boolean;
   required?: boolean;
   className?: string;
+  name?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -23,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   disabled = false,
   required = false,
   className = '',
+  name,
   onChange,
   onBlur,
   onFocus,
@@ -52,6 +54,7 @@ const Input: React.FC<InputProps> = ({
       )}
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
         value={value}
         disabled={disabled}

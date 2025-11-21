@@ -5,9 +5,9 @@ import {
   TrophyIcon,
   CurrencyDollarIcon,
   FireIcon,
-  CheckSquareIcon,
+  CheckCircleIcon,
   HeartIcon,
-  MapIcon,
+  MapPinIcon,
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
 
@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
     {
       name: 'Tasks',
       href: '/dashboard/todos',
-      icon: CheckSquareIcon,
+      icon: CheckCircleIcon,
       description: 'Daily tasks and to-dos',
     },
     {
@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
     {
       name: 'Bucket List',
       href: '/dashboard/bucketlist',
-      icon: MapIcon,
+      icon: MapPinIcon,
       description: 'Life experiences to achieve',
     },
   ];
