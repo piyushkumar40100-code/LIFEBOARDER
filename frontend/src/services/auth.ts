@@ -53,7 +53,7 @@ export const authService = {
         refreshToken,
       });
 
-      const { accessToken } = response.data.data;
+      const { accessToken } = response.data;
       localStorage.setItem('accessToken', accessToken);
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Token refresh failed');
