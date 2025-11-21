@@ -4,7 +4,7 @@ import { LoginData, RegisterData, AuthResponse } from '../types/Auth';
 export const authService = {
   async login(credentials: LoginData): Promise<AuthResponse> {
     try {
-      const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
+      const response = await apiClient.post<AuthResponse>('/api/v1/auth/login', credentials);
 
       // Store tokens in localStorage
       const { accessToken, refreshToken } = response.data.tokens;
