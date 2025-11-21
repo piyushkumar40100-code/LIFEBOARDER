@@ -32,7 +32,7 @@ export const authService = {
 
   async logout(): Promise<void> {
     try {
-      await apiClient.post('/auth/logout');
+      await apiClient.post('/api/v1/auth/logout');
     } catch (error) {
       // Continue with logout even if API call fails
       console.error('Logout API call failed:', error);
