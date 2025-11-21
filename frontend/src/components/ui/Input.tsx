@@ -24,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   disabled = false,
   required = false,
   className = '',
+  name,
   onChange,
   onBlur,
   onFocus,
