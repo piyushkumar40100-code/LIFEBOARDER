@@ -7,7 +7,7 @@ import {
   TrophyIcon,
   CurrencyDollarIcon,
   FireIcon,
-  CheckSquareIcon,
+  CheckCircleIcon,
   HeartIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline';
