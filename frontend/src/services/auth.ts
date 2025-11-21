@@ -7,7 +7,7 @@ export const authService = {
       const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
 
       // Store tokens in localStorage
-      const { accessToken, refreshToken } = response.data.data.tokens;
+      const { accessToken, refreshToken } = response.data.tokens;
       apiClient.setAuthTokens(accessToken, refreshToken);
 
       return response;
@@ -21,7 +21,7 @@ export const authService = {
       const response = await apiClient.post<AuthResponse>('/auth/register', userData);
 
       // Store tokens in localStorage
-      const { accessToken, refreshToken } = response.data.data.tokens;
+      const { accessToken, refreshToken } = response.data.tokens;
       apiClient.setAuthTokens(accessToken, refreshToken);
 
       return response;
