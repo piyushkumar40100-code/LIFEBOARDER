@@ -31,7 +31,7 @@ export const goalsService = {
 
   async deleteGoal(id: string): Promise<void> {
     try {
-      await apiClient.delete(`/goals/${id}`);
+      await apiClient.delete(`/api/v1/goals/${id}`);
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to delete goal');
     }
