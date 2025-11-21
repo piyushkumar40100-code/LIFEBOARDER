@@ -28,13 +28,11 @@ export class JWTService {
       email,
     };
 
-    const refreshSignOptions: SignOptions = {
-      expiresIn: config.jwt.refreshTokenExpiry as string,
+    return jwt.sign(payload, config.jwt.refreshSecret, {
+      expiresIn: config.jwt.refreshTokenExpiry,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
-    };
-
-    return jwt.sign(payload, config.jwt.refreshSecret, refreshSignOptions);
+    } as SignOptions);
   }
 
   /**
