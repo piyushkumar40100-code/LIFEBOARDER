@@ -135,7 +135,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     dispatch({ type: 'AUTH_START' });
     try {
       const response = await authService.register(userData);
-      const { user, tokens } = response.data.data;
+      const { user, tokens } = response.data;
 
       authService.setUser(user);
       dispatch({
