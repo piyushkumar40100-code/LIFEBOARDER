@@ -5,14 +5,22 @@ class SupabaseService {
   private client: SupabaseClient;
 
   constructor() {
-    // Debug logging
-    console.log('🔍 Supabase config - DATABASE_URL:', config.database.url?.substring(0, 50) + '...');
+    // Extract Supabase URL from PostgreSQL connection string
+    const postgresUrl = config.database.url;
 
-    if (!config.database.url) {
-      throw new Error('DATABASE_URL is not configured in environment variables');
+    // Convert postgresql://postgres:password@db.xyz.supabase.co:5432/postgres
+    // To: https://xyz.supabase.co
+    const supabaseUrl = postgresUrl.replace(/postgresql:\/\/[^@]*@db\.(.+)\.supabase\.co:5432\/.*/, 'https://$1.supabase.co');
+
+    console.log('🔍 Supabase config - Original URL:', postgresUrl.substring(0, 50) + '...');
+    console.log('🔍 Supabase config - Supabase URL:', supabaseUrl);
+
+    if (!supabaseUrl || !supabaseUrl.startsWith('https://')) {
+      throw new Error('Invalid DATABASE_URL format. Expected Supabase connection string');
     }
 
-    this.client = createClient(config.database.url, '', {
+    // For direct database access, we don't need the anon key since we're using RLS
+    this.client = createClient(supabaseUrl, '', {
       auth: {
         persistSession: false,
         autoRefreshToken: false,
