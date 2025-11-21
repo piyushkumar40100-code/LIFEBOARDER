@@ -54,6 +54,7 @@ const Input: React.FC<InputProps> = ({
       )}
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
         value={value}
         disabled={disabled}
