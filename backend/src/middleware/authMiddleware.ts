@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import JWTService from '../utils/jwt';
+const JWTService = require('../utils/jwt');
 import ResponseService from '../utils/response';
 
 // Extend Request interface to include user
