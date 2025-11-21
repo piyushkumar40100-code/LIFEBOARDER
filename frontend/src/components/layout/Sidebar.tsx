@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
     {
       name: 'Tasks',
       href: '/dashboard/todos',
-      icon: CheckSquareIcon,
+      icon: CheckCircleIcon,
       description: 'Daily tasks and to-dos',
     },
     {
