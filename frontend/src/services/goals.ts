@@ -5,7 +5,7 @@ export const goalsService = {
   async getGoals(): Promise<Goal[]> {
     try {
       const response = await apiClient.get<{ success: boolean; data: Goal[] }>('/goals');
-      return response.data.data;
+      return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to fetch goals');
     }
@@ -14,7 +14,7 @@ export const goalsService = {
   async createGoal(goalData: CreateGoalData): Promise<Goal> {
     try {
       const response = await apiClient.post<{ success: boolean; data: Goal }>('/goals', goalData);
-      return response.data.data;
+      return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to create goal');
     }
@@ -23,7 +23,7 @@ export const goalsService = {
   async updateGoal(id: string, updates: UpdateGoalData): Promise<Goal> {
     try {
       const response = await apiClient.put<{ success: boolean; data: Goal }>(`/goals/${id}`, updates);
-      return response.data.data;
+      return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to update goal');
     }
