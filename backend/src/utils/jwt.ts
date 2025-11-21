@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import config from '../config/env';
 import { JWTPayload } from '../types/Auth';
 
@@ -12,11 +12,13 @@ export class JWTService {
       email,
     };
 
-    return jwt.sign(payload, config.jwt.accessSecret, {
+    const signOptions: SignOptions = {
       expiresIn: config.jwt.accessTokenExpiry,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
-    });
+    };
+
+    return jwt.sign(payload, config.jwt.accessSecret, signOptions);
   }
 
   /**
@@ -28,11 +30,13 @@ export class JWTService {
       email,
     };
 
-    return jwt.sign(payload, config.jwt.refreshSecret, {
+    const refreshSignOptions: SignOptions = {
       expiresIn: config.jwt.refreshTokenExpiry,
       issuer: 'lifeboard-api',
       audience: 'lifeboard-client',
-    });
+    };
+
+    return jwt.sign(payload, config.jwt.refreshSecret, refreshSignOptions);
   }
 
   /**
