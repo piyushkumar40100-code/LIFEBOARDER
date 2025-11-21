@@ -5,9 +5,9 @@ import {
   TrophyIcon,
   CurrencyDollarIcon,
   FireIcon,
-  CheckSquareIcon,
+  CheckCircleIcon,
   HeartIcon,
-  MapIcon,
+  MapPinIcon,
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
 
