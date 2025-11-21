@@ -49,7 +49,7 @@ export const authService = {
         throw new Error('No refresh token available');
       }
 
-      const response = await apiClient.post<{ success: boolean; data: { accessToken: string } }>('/auth/refresh', {
+      const response = await apiClient.post<{ success: boolean; data: { accessToken: string } }>('/api/v1/auth/refresh', {
         refreshToken,
       });
 
