@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
       title: 'Tasks',
       description: 'Organize and complete daily tasks',
       href: '/dashboard/todos',
-      icon: CheckSquareIcon,
+      icon: CheckCircleIcon,
       color: 'bg-blue-500',
       count: stats.tasks,
     },
