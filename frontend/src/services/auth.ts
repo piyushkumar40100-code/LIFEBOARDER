@@ -4,7 +4,7 @@ import { LoginData, RegisterData, AuthResponse } from '../types/Auth';
 export const authService = {
   async login(credentials: LoginData): Promise<AuthResponse> {
     try {
-      const response = await apiClient.post<AuthResponse>('/auth/login', credentials);
+      const response = await apiClient.post<AuthResponse>('/api/v1/auth/login', credentials);
 
       // Store tokens in localStorage
       const { accessToken, refreshToken } = response.data.tokens;
@@ -18,7 +18,7 @@ export const authService = {
 
   async register(userData: RegisterData): Promise<AuthResponse> {
     try {
-      const response = await apiClient.post<AuthResponse>('/auth/register', userData);
+      const response = await apiClient.post<AuthResponse>('/api/v1/auth/register', userData);
 
       // Store tokens in localStorage
       const { accessToken, refreshToken } = response.data.tokens;
@@ -32,7 +32,7 @@ export const authService = {
 
   async logout(): Promise<void> {
     try {
-      await apiClient.post('/auth/logout');
+      await apiClient.post('/api/v1/auth/logout');
     } catch (error) {
       // Continue with logout even if API call fails
       console.error('Logout API call failed:', error);
@@ -49,7 +49,7 @@ export const authService = {
         throw new Error('No refresh token available');
       }
 
-      const response = await apiClient.post<{ success: boolean; data: { accessToken: string } }>('/auth/refresh', {
+      const response = await apiClient.post<{ success: boolean; data: { accessToken: string } }>('/api/v1/auth/refresh', {
         refreshToken,
       });
 

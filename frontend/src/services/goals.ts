@@ -4,7 +4,7 @@ import { Goal, CreateGoalData, UpdateGoalData } from '../types/Goal';
 export const goalsService = {
   async getGoals(): Promise<Goal[]> {
     try {
-      const response = await apiClient.get<{ success: boolean; data: Goal[] }>('/goals');
+      const response = await apiClient.get<{ success: boolean; data: Goal[] }>('/api/v1/goals');
       return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to fetch goals');
@@ -13,7 +13,7 @@ export const goalsService = {
 
   async createGoal(goalData: CreateGoalData): Promise<Goal> {
     try {
-      const response = await apiClient.post<{ success: boolean; data: Goal }>('/goals', goalData);
+      const response = await apiClient.post<{ success: boolean; data: Goal }>('/api/v1/goals', goalData);
       return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to create goal');
@@ -31,7 +31,7 @@ export const goalsService = {
 
   async deleteGoal(id: string): Promise<void> {
     try {
-      await apiClient.delete(`/goals/${id}`);
+      await apiClient.delete(`/api/v1/goals/${id}`);
     } catch (error: any) {
       throw new Error(error.response?.data?.error || 'Failed to delete goal');
     }
