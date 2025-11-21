@@ -22,6 +22,7 @@ export const config = {
   port: env.PORT,
   database: {
     url: env.DATABASE_URL,
+    supabaseAnonKey: env.SUPABASE_ANON_KEY,
   },
   jwt: {
     accessSecret: env.JWT_ACCESS_SECRET,
